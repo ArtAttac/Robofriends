@@ -3,6 +3,7 @@ import CardList from "../components/CardList";
 import Searchbox from "../components/Searchbox";
 import "./App.css";
 import Scroll from "../components/Scroll";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 class App extends Component {
   constructor() {
@@ -15,7 +16,7 @@ class App extends Component {
 
   //Fetching from API and setting the user names to robots
   componentDidMount() {
-    fetch("http://jsonplaceholder.typicode.com/users")
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
       .then(users => this.setState({ robots: users }));
   }
@@ -42,7 +43,9 @@ class App extends Component {
           <h1 className="f1">Robofriends</h1>
           <Searchbox searchChange={this.onSearchChange} />
           <Scroll>
-            <CardList robots={filteredRobot} />
+            <ErrorBoundry>
+              <CardList robots={filteredRobot} />
+            </ErrorBoundry>
           </Scroll>
         </div>
       );
