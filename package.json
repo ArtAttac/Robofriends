@@ -1,6 +1,6 @@
 {
   "name": "robo-friends",
-  "homepage": "https://artattac.github.io/Robofriends",
+  "homepage": "https://artattac.github.io/robofriends",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "clean": "rm -rf node_modules/gh-pages/.cache"
   },
   "eslintConfig": {
     "extends": "react-app"
